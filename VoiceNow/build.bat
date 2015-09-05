@@ -1,3 +1,3 @@
 call ant release
-java -jar ../build/signapk.jar ../build/platform.x509.pem ../build/platform.pk8 bin/VoiceNow-release-unsigned.apk bin/VoiceNow-release.apk
+java -jar ../buildtools/signapk.jar ../buildtools/platform.x509.pem ../buildtools/platform.pk8 bin/VoiceNow-release-unsigned.apk bin/VoiceNow-release.apk
 zipalign -fv 4 bin/VoiceNow-release.apk bin/VoiceNow.apk

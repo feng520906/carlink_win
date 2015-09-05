@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--应用列表页-->
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/gridview"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:columnWidth="@dimen/app_entry_size"
+          android:numColumns="auto_fit"
+          android:verticalSpacing="8dp"
+          android:stretchMode="columnWidth"
+          android:listSelector="@color/transparent"
+          android:paddingTop="8dp"
+          android:gravity="center" />

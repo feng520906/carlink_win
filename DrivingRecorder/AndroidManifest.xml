@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.coopox.DrivingRecorder"
+          android:versionCode="12"
+          android:versionName="1.12.1503XX"
+          android:sharedUserId="android.uid.system" >
+
+    <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="19"/>
+
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <permission android:name="com.coopox.DrivingRecorder.permission.StartDrivingRecord"
+                android:protectionLevel="normal" />
+
+    <!--连接 VoiceNow 服务-->
+    <uses-permission android:name="com.coopox.VoiceNow.permission.START_VOICE_NOW"/>
+
+    <!--使用摄像头-->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+            android:name=".DrivingRecordApplication"
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher"
+            android:largeHeap="true"
+            android:persistent="true">
+
+        <activity
+            android:name="DrivingRecorderActivity"
+                android:screenOrientation="landscape"
+            android:icon="@drawable/icon"
+                android:label="功能开关">
+<!--            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity
+                android:name=".RecordPreviewActivity"
+                android:screenOrientation="landscape"
+                android:label="@string/record_preview"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".DrivingRecorderSettings"
+                  android:screenOrientation="landscape"
+                  android:theme="@android:style/Theme.Holo.Light" />
+
+        <service android:name=".DrivingRecordService" android:exported="true"
+                 android:permission="com.coopox.DrivingRecorder.permission.StartDrivingRecord" >
+            <intent-filter>
+                <action android:name="com.coopox.service.action.DrivingRecord"/>
+            </intent-filter>
+        </service>
+        <service android:name=".ContinuousCaptureService" android:exported="false"/>
+
+        <receiver android:name=".TakePhotoReceiver"
+                  android:exported="true" >
+            <intent-filter >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter >
+                <action android:name="com.coopox.DrivingRecorder.TakePicture" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+                android:name=".ExternalStorageStatusReceiver"
+                android:exported="false" >
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <data android:scheme="file" />
+            </intent-filter>
+            <intent-filter >
+                <action android:name="android.intent.action.MEDIA_REMOVED" />
+                <action android:name="android.intent.action.MEDIA_BAD_REMOVAL" />
+                <action android:name="android.intent.action.MEDIA_EJECT" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data android:value="544531a5fd98c5d733012446" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="PreSetup" android:name="UMENG_CHANNEL"/>
+    </application>
+</manifest>

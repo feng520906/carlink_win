@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/view_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <!-- Line 1 -->
+    <RelativeLayout
+            android:id="@+id/page1_cell1"
+            android:layout_width="172dp"
+            android:layout_height="171dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:gravity="center"
+            android:tag="@string/car_record"
+            android:background="@drawable/bg_page1_cell1">
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/page1_cell2"
+            android:layout_width="169dp"
+            android:layout_height="171dp"
+            android:layout_toRightOf="@id/page1_cell1"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:gravity="center"
+            android:tag="@string/gallery"
+            android:background="@drawable/bg_page1_cell2">
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/page1_cell3"
+            android:layout_width="275dp"
+            android:layout_height="171dp"
+            android:layout_toRightOf="@id/page1_cell2"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:background="@drawable/bg_page1_cell3">
+    </RelativeLayout>
+
+    <!-- Line 2 -->
+    <RelativeLayout
+            android:id="@+id/page1_cell4"
+            android:layout_width="172dp"
+            android:layout_height="171dp"
+            android:layout_below="@+id/page1_cell1"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:gravity="center"
+            android:background="@drawable/bg_page1_cell4">
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/page1_cell8"
+            android:layout_width="172dp"
+            android:layout_height="171dp"
+            android:layout_toRightOf="@id/page1_cell4"
+            android:layout_below="@+id/page1_cell1"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:gravity="center"
+            android:tag="@string/pressure"
+            android:background="@drawable/bg_page2_cell8">
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/page1_cell5"
+            android:layout_width="135dp"
+            android:layout_height="171dp"
+            android:layout_toRightOf="@id/page1_cell8"
+            android:layout_below="@+id/page1_cell1"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:gravity="center"
+            android:tag="@string/traffic_status"
+            android:background="@drawable/bg_page1_cell5">
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/page1_cell6"
+            android:layout_width="135dp"
+            android:layout_height="83.5dp"
+            android:layout_toRightOf="@id/page1_cell5"
+            android:layout_below="@+id/page1_cell1"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:gravity="center"
+            android:tag="@string/navgation"
+            android:background="@drawable/bg_page1_cell6">
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/page1_cell7"
+            android:layout_width="135dp"
+            android:layout_height="83.5dp"
+            android:layout_toRightOf="@id/page1_cell5"
+            android:layout_below="@+id/page1_cell6"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="6dp"
+            android:gravity="center"
+            android:tag="@string/music"
+            android:background="@drawable/bg_page1_cell7">
+    </RelativeLayout>
+</RelativeLayout>
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CarLauncher</string>
+    <string name="car_record">行车记录</string>
+    <string name="gallery">照片</string>
+    <string name="traffic_status">实时路况</string>
+    <string name="navgation">导航</string>
+    <string name="music">音乐</string>
+    <string name="wechat">微信</string>
+    <string name="dial">电话</string>
+    <string name="search_song">搜歌</string>
+    <string name="radio_settings">FM设置</string>
+    <string name="obd">爱车体检</string>
+    <string name="self_driving">自驾游</string>
+    <string name="navgation2">导航2</string>
+    <string name="settings">设置</string>
+    <string name="clock">时钟</string>
+    <string name="car_link">车联网</string>
+    <string name="close">关闭</string>
+    <string name="user_register">用户注册</string>
+    <string name="reg_region">车牌归属地：</string>
+    <string name="name">称呼：</string>
+    <string name="gender">性别：</string>
+    <string name="plate">车牌号：</string>
+    <string name="mileage">当前里程数：</string>
+    <string name="brand">爱车品牌：</string>
+    <string name="male">先生</string>
+    <string name="female">女士</string>
+    <string name="finish">完成</string>
+    <string name="pls_select_gender">请选择您的性别</string>
+    <string name="pls_input_name">请输入您的姓名</string>
+    <string name="pls_input_plate">请输入您的车牌号</string>
+    <string name="invalid_mileage">里程数只能是数字</string>
+    <string name="invalid_plate">只能包括英文、数字和 - 号</string>
+    <string name="pls_input_frame_num">请输入车辆识别代码</string>
+    <string name="invalid_frame_num">车辆识别码只能包括英文、数字和 - 号</string>
+    <string name="frame_number">车辆识别号：</string>
+    <string name="engine_code">发动机号：</string>
+    <string name="invalid_engine_code">发动机号码只能包括字母和数字</string>
+    <string name="pls_input_engine_code">请填写您的发动机号码</string>
+    <string name="skip">跳过</string>
+    <string name="pressure">胎压检测</string>
+    <string name="family">车系：</string>
+    <string name="pls_choose_car_info">请选择车型信息</string>
+    <string name="system_settings">系统设置</string>
+    <string name="more_adv_settings">查看更多高级设置</string>
+    <string name="switch_voice_now" translate="false">SwitchVoiceNow</string>
+    <string name="switch_smart_key" translate="false">SwitchSmartKey</string>
+</resources>

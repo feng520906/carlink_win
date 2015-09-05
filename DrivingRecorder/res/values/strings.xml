@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">行车记录</string>
+    <string name="no_external_storage">没有安装存储卡，行车记录功能暂不可用！</string>
+    <string name="record_preview">行车记录</string>
+    <string name="not_enough_storage">存储卡剩余空间太少，行车记录功能暂不可用，请清理存储卡。</string>
+    <string name="take_photo">已拍照</string>
+    <string name="recording">录制中</string>
+    <string name="record_duration">每段录像时长：</string>
+    <string name="recorder_active_tips">行车记录功能已开启，请注意行驶安全</string>
+    <string name="one_minus">1分钟</string>
+    <string name="threeMinus">3分钟</string>
+    <string name="fiveMinus">5分钟</string>
+    <string name="photo_quality">照片质量：</string>
+    <string name="low_quality">低</string>
+    <string name="mid_quality">中</string>
+    <string name="high_quality">高</string>
+    <string name="braking_sensitivity">急刹自动拍照：</string>
+    <string name="sens_turn_off">关闭</string>
+    <string name="low_sens">低灵敏</string>
+    <string name="high_sens">很灵敏</string>
+    <string name="mid_sens">普通</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="video_size">视频清晰度：</string>
+    <string name="video1080p">1080P</string>
+    <string name="video720p">720P</string>
+    <string name="now_upload_file">上传文件中...</string>
+    <string name="no_user_id">登录账号未找到</string>
+    <string name="upload_fial">失败</string>
+    <string name="switch_post_camera">正在切换倒车模式</string>
+    <string name="switch_front_camera">正在切换行车模式</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_width="@dimen/app_entry_size"
+          android:layout_height="@dimen/app_entry_size"
+          style="@style/AppEntryCellFont"
+          android:padding="10dp"
+          android:maxLines="1"
+          android:ellipsize="end" />
+

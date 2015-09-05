@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.coopox.carlauncher"
+          android:versionCode="13"
+          android:versionName="1.13.1505XX"
+          android:sharedUserId="android.uid.system" >
+
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19"/>
+
+    <supports-screens android:largeScreens="true"
+                      android:normalScreens="true"
+                      android:smallScreens="true"
+                      android:anyDensity="true" />
+
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!-- 用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 访问网络，网络定位需要上网-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--SD卡读取权限，用户写入离线定位数据-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <!--允许应用读取低级别的系统日志文件 -->
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <!-- For 百度云推送 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+
+    <!--连接 VoiceNow 服务-->
+    <uses-permission android:name="com.coopox.VoiceNow.permission.START_VOICE_NOW"/>
+    <!--连接 SmartKey 服务-->
+    <uses-permission android:name="com.coopox.SmartKey.permission.ACCESS_SMART_KEY"/>
+    <!--连接 DrivingRecord 服务-->
+    <uses-permission android:name="com.coopox.DrivingRecorder.permission.StartDrivingRecord"/>
+
+    <application
+        android:name=".activity.CarApplication"
+        android:label="@string/app_name"
+        android:icon="@drawable/icon">
+        <activity
+            android:name=".activity.HomeScreenActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.UserRegistryActivity"
+                android:screenOrientation="landscape"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+
+        <activity
+                android:name=".activity.SettingsActivity"
+                android:screenOrientation="landscape" />
+
+        <!-- For ContentProvider -->
+        <provider android:authorities="com.coopox.carlauncher"
+                  android:exported="true"
+                  android:name="com.activeandroid.content.ContentProvider" />
+
+        <service android:name="com.coopox.network.http.DownloadService"
+                 android:exported="false"/>
+        <!--仅把串行下载开放给外部调用-->
+        <service android:name="com.coopox.network.http.DownloadIntentService"
+                 android:exported="true"/>
+
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
+        </service>
+
+        <!-- push service client -->
+        <receiver android:name=".receiver.BaiduPushMsgReceiver">
+            <intent-filter>
+                <!-- 接收 push 消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收 bind、setTags 等 method 的返回结果 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <!-- 可选。接受通知点击事件,和通知自定义内容 -->
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- push富媒体，不使用富媒体推送不需要 -->
+        <activity
+            android:name="com.baidu.android.pushservice.richmedia.MediaViewActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="MediaViewActivity" >
+        </activity>
+        <activity
+            android:name="com.baidu.android.pushservice.richmedia.MediaListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="MediaListActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        <!-- push富媒体结束 -->
+
+        <!-- push service start -->
+        <!-- 用于接收系统消息以保证 PushService 正常运行 -->
+        <receiver android:name="com.baidu.android.pushservice.PushServiceReceiver"
+                  android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+            </intent-filter>
+        </receiver>
+        <!-- Push 服务接收客户端发送的各种请求-->
+        <!-- 注意:RegistrationReceiver 在 2.1.1 及之前版本有拼写失误,为 RegistratonReceiver ,用 新版本 SDK 时请更改为如下代码-->
+        <receiver android:name="com.baidu.android.pushservice.RegistrationReceiver"
+                  android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD" />
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!--网络状态监听器-->
+        <receiver android:name=".receiver.NetworkStateReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Push 服务 -->
+        <!-- 注意:在 4.0 (包含)之后的版本需加上如下所示的 intent-filter action -->
+        <service android:name="com.baidu.android.pushservice.PushService"
+                 android:exported="true" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
+            </intent-filter>
+        </service>
+        <!-- push service end -->
+
+        <!--For ImageLoader-->
+        <service android:name="com.novoda.ImageLoader.core.service.CacheCleaner"
+                 android:exported="true">
+            <intent-filter>
+                <action android:name="com.novoda.ImageLoader.core.action.CLEAN_CACHE" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".service.PushMessageService"
+                 android:process=":push_msg"
+                android:exported="false"/>
+        <!-- For umeng SDK -->
+        <meta-data android:value="53f285c5fd98c5862500c12d" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="测试" android:name="UMENG_CHANNEL"/>
+
+        <!-- For Baidu SDK -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="txTVHlhOk58rImij6pmO0QMC" />
+        <meta-data
+            android:name="api_key"
+            android:value="txTVHlhOk58rImij6pmO0QMC" />
+        <!-- For ActiveAndroid -->
+        <meta-data android:name="AA_DB_NAME" android:value="CarLink.db" />
+        <meta-data android:name="AA_DB_VERSION" android:value="2" />
+        <meta-data android:name="AA_SERIALIZERS"
+            android:value="com.coopox.carlauncher.datamodel.IntentTypeSerializer,
+            com.coopox.carlauncher.datamodel.BitmapTypeSerializer" />
+    </application>
+</manifest>

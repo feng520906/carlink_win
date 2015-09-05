@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VoiceNow</string>
+    <string name="app_data_error">对不起，应用数据出错</string>
+    <string name="will_launch_app">为您启动%s</string>
+    <string name="will_stop_app">为您关闭%s</string>
+    <string name="can_not_stop_app">对不起，无法关闭应用</string>
+    <string name="can_not_find_app">对不起，没找到%s应用</string>
+</resources>

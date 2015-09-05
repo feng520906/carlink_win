@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="服务">
+        <CheckBoxPreference
+                android:id="@+id/sw_voice_now"
+                android:key="@string/switch_voice_now"
+                android:title="语音控制"
+                android:defaultValue="true"
+                android:summary="启用语音控制服务，通过语音控制智橙" />
+        <CheckBoxPreference
+                android:id="@+id/sw_smart_key"
+                android:key="@string/switch_smart_key"
+                android:title="智键控制"
+                android:defaultValue="true"
+                android:summary="启用智键控制服务，通过智键控制智橙" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="个人">
+        <Preference android:title="注册信息"
+                    android:summary="查看和修改用户信息" >
+            <intent
+                    android:targetPackage="com.coopox.carlauncher"
+                    android:targetClass="com.coopox.carlauncher.controller.UserRegistryActivity" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="系统">
+        <Preference android:title="系统设置">
+            <intent
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.Settings" />
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

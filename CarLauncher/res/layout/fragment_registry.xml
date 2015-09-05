@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/RegisterTitle"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:text="@string/user_register"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                style="@style/RegisterLabel"
+                android:layout_gravity="center_vertical"
+                android:text="@string/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                style="@style/RegisterLabel"
+                android:layout_gravity="center_vertical"
+                android:text="@string/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioGroup
+                android:id="@+id/radio_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/radio_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/male"/>
+                <RadioButton
+                    android:id="@+id/radio_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/female"/>
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:baselineAligned="false">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/RegisterLabel"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/brand"/>
+            <com.coopox.carlauncher.view.PickerView
+                    android:id="@+id/brand_picker"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="180dp"
+                    android:layout_height="100dp" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/RegisterLabel"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/family"/>
+            <com.coopox.carlauncher.view.PickerView
+                    android:id="@+id/family_picker"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="220dp"
+                    android:layout_height="100dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/RegisterLabel"
+                android:layout_gravity="center_vertical"
+                android:text="@string/reg_region"/>
+            <com.coopox.carlauncher.view.PickerView
+                android:id="@+id/province_picker"
+                android:layout_marginLeft="10dp"
+                android:layout_width="140dp"
+                android:layout_height="100dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/label_plate"
+                style="@style/RegisterLabel"
+                android:layout_gravity="center_vertical"
+                android:text="@string/plate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/input_plate"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters"
+                android:background="@drawable/bg_input"
+                android:gravity="center_vertical"
+                android:drawableRight="@drawable/star"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            <TextView
+                    style="@style/RegisterLabel"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/engine_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            <EditText
+                    android:id="@+id/input_engine_code"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input"
+                    android:gravity="center_vertical"
+                    android:drawableRight="@drawable/star"/>
+        </LinearLayout>
+
+        <!--        <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <TextView
+                        style="@style/RegisterLabel"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/mileage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/input_mileage"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:background="@drawable/bg_input"/>
+                </LinearLayout>-->
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            <TextView
+                    style="@style/RegisterLabel"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/frame_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            <EditText
+                    android:id="@+id/input_frame_num"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+        <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                style="@style/RegisterLabel"
+                android:text="@string/finish"/>
+        <Button
+                android:id="@+id/btn_skip"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="22dp"
+                style="@style/RegisterLabel"
+                android:text="@string/skip"/>
+    </LinearLayout>
+</LinearLayout>

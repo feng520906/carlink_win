@@ -1,0 +1,6 @@
+#BNF+IAT 1.0 UTF-8;
+!grammar voice;
+!slot <voicecmd>;
+!start <voicestart>;
+<voicestart>:<voicecmd>;
+<voicecmd>:小智你好|你好小智|呼叫小智|小智在吗|语音控制|激活语音|喂小智;
